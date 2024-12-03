@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <input type="text" id="input1" placeholder="First number">
+    <select id="cal-select">
+        <option value="">--Choose--</option>
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="multiply">x</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="text" id="input2" placeholder="Second number">
+    <button onclick="calculate()">Calculate</button>
+    <p>Result: <span id="result"></span></p>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('input1').value);
+            var num2 = parseFloat(document.getElementById('input2').value);
+            var operator = document.getElementById('cal-select').value;
+            var result;
+
+            if (operator === "plus") result = num1 + num2;
+            else if (operator === "minus") result = num1 - num2;
+            else if (operator === "multiply") result = num1 * num2;
+            else if (operator === "divide") result = num2 !== 0 ? num1 / num2 : "Error (divide by zero)";
+            else result = "Choose an operator";
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
